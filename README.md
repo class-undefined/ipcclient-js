@@ -6,7 +6,7 @@ This is a simple IPC client for JavaScript. It is designed to work with the IPC 
 
 ```typescript
 
-import { IPCClient } from 'ipcclient';
+import { IpcClient } from 'ipcclient';
 
 IpcClient.connect('/path/to/foo.sock', async (client) => {
     const response = await client.send<string>("/hello", 'Hello, World!')
