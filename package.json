@@ -1,0 +1,25 @@
+{
+  "name": "ipcclient-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "pnpm tsc && node dist/index.js"
+  },
+  "keywords": [],
+  "author": "class-undefined",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^22.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "@types/msgpack-lite": "^0.1.11",
+    "@types/uuid": "^10.0.0",
+    "msgpack-lite": "^0.1.26",
+    "uuid": "^10.0.0"
+  }
+}
