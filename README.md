@@ -1,4 +1,4 @@
-# ipcclient-javascript
+# ipcclient-js
 
 This is a simple IPC client for JavaScript. It is designed to work with the IPC server in the [ipcserver](https://github.com/class-undefined/ipcserver.git)
 
