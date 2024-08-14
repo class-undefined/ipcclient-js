@@ -1,19 +1,27 @@
 {
   "name": "ipcclient-js",
-  "version": "1.0.0",
+  "version": "0.1.3",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start": "pnpm tsc && node dist/index.js"
+    "build": "rollup -c",
+    "start": "pnpm build && node dist/index.cjs.js"
   },
   "keywords": [],
   "author": "class-undefined",
   "license": "ISC",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
     "@types/node": "^22.3.0",
+    "rollup": "^3.0.0",
+    "rollup-plugin-terser": "^7.0.2",
     "ts-node": "^10.9.2",
+    "tslib": "^2.6.3",
     "typescript": "^5.5.4"
   },
   "dependencies": {
