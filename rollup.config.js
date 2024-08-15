@@ -5,7 +5,7 @@ import terser from "@rollup/plugin-terser"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 
 export default {
-    input: "src/index.ts",
+    input: ["src/index.ts"],
     output: [
         {
             file: "dist/index.cjs.js",
@@ -23,6 +23,7 @@ export default {
             sourcemap: true,
         },
     ],
+    external: ["src/tests/"],
     plugins: [
         resolve(),
         commonjs(),

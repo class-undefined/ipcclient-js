@@ -1,4 +1,5 @@
 import { decode } from "msgpack-lite"
+import { IIpcRequest, IpcRequest } from "./request"
 export enum IpcStatus {
     OK = 200,
     CACHED = 304,
@@ -17,16 +18,16 @@ export class IpcResponse<T> {
         this.data = data
     }
 
-    public static fromBuffer<T>(buffer: Uint8Array): [string, IpcResponse<T>] {
-        const [requestId, { message, code, data }] = decode(buffer) as [
-            string,
+    public static fromBuffer<T>(buffer: Uint8Array): [IpcRequest, IpcResponse<T>] {
+        const [request, { message, code, data }] = decode(buffer) as [
+            IIpcRequest,
             {
                 message: string
                 code: IpcStatus
                 data: T
             }
         ]
-        return [requestId, new IpcResponse(message, code, data)]
+        return [IpcRequest.from(request), new IpcResponse(message, code, data)]
     }
 
     public isError(): boolean {
