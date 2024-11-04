@@ -63,7 +63,7 @@ export class IpcClient {
             this.client.write(buffer)
         })
             .then((response) => {
-                if (response.isError()) throw new Error(response.message)
+                if (response.isError()) return Promise.reject(new Error(response.message))
                 return response
             })
             .finally(() => {

@@ -33,10 +33,10 @@
     "ts-jest": "^29.2.4",
     "ts-node": "^10.9.2",
     "tslib": "^2.6.3",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "@rollup/plugin-terser": "^0.4.4"
   },
   "dependencies": {
-    "@rollup/plugin-terser": "^0.4.4",
     "msgpack-lite": "^0.1.26",
     "polyfill-crypto-methods": "^0.2.0",
     "uuid": "^10.0.0"
