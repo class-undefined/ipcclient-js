@@ -1,6 +1,6 @@
 {
   "name": "ipcclient-js",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -16,6 +16,9 @@
     "start": "pnpm build && node dist/index.esm.js",
     "test": "jest"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "class-undefined",
   "license": "ISC",
