@@ -23,6 +23,10 @@ export class IpcClient {
         })
     }
 
+    public getClientId() {
+        return this.id
+    }
+
     /**
      * 向指定路由发送数据并接收反馈
      * @param path 路由路径
