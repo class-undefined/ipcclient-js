@@ -2,33 +2,44 @@ import resolve from "@rollup/plugin-node-resolve"
 import commonjs from "@rollup/plugin-commonjs"
 import typescript from "@rollup/plugin-typescript"
 import terser from "@rollup/plugin-terser"
-import { nodeResolve } from "@rollup/plugin-node-resolve"
 
 export default {
-    input: ["src/index.ts"],
+    input: "src/index.ts",
     output: [
         {
-            file: "dist/index.cjs.js",
+            file: "dist/index.cjs.js",  // CommonJS 格式
             format: "cjs",
             sourcemap: true,
+            exports: 'named'
         },
         {
-            file: "dist/index.esm.js",
+            file: "dist/index.mjs",     // ES Module 格式，使用 .mjs 后缀
             format: "esm",
-            sourcemap: true,
+            sourcemap: true
         },
         {
-            file: "dist/index.amd.js",
-            format: "amd",
-            sourcemap: true,
-        },
+            file: "dist/index.esm.js",  // ES Module 格式，使用传统 .js 后缀
+            format: "esm",
+            sourcemap: true
+        }
     ],
-    external: ["src/tests/"],
+    external: [
+        'msgpack-lite',
+        'uuid',
+        'polyfill-crypto-methods'
+    ],
     plugins: [
-        resolve(),
+        resolve({
+            preferBuiltins: true,
+            exportConditions: ['node']
+        }),
         commonjs(),
-        typescript(),
-        terser(),
-        nodeResolve({ exportConditions: ["node"] }),
-    ],
+        typescript({
+            tsconfig: './tsconfig.json',
+            sourceMap: true,
+            declaration: true,
+            declarationDir: 'dist'
+        }),
+        terser()
+    ]
 }
