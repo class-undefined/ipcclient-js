@@ -1,19 +1,19 @@
-import resolve from "@rollup/plugin-node-resolve"
-import commonjs from "@rollup/plugin-commonjs"
-import typescript from "@rollup/plugin-typescript"
-import terser from "@rollup/plugin-terser"
+const resolve = require("@rollup/plugin-node-resolve")
+const commonjs = require("@rollup/plugin-commonjs")
+const typescript = require("@rollup/plugin-typescript")
+const terser = require("@rollup/plugin-terser")
 
-export default {
+module.exports = {
     input: "src/index.ts",
     output: [
         {
-            file: "dist/index.cjs.js",  // CommonJS 格式
+            file: "dist/index.cjs",  // 改为 .cjs 后缀
             format: "cjs",
             sourcemap: true,
             exports: 'named'
         },
         {
-            file: "dist/index.mjs",     // ES Module 格式，使用 .mjs 后缀
+            file: "dist/index.mjs",  // ESM 使用 .mjs
             format: "esm",
             sourcemap: true
         },

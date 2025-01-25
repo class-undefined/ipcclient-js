@@ -1,3 +1,4 @@
+set -e
 npm config set registry https://registry.npmjs.org
 pnpm build
 npm publish
